@@ -1,17 +1,17 @@
-package com.example.teppei.appsflyerdemo;
+package com.demo.teppei.appsflyerdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 //import android.support.v7.app.ActionBarActivity;
 //import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.demo.teppei.appsflyerdemo.R;
 
 public class LoginActivity extends AppCompatActivity {
     private static EditText username;
@@ -42,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                                 password.getText().toString().equals("pass")  ) {
                             Toast.makeText(LoginActivity.this,"User and Password is correct",
                                     Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent("com.example.teppei.appsflyerdemo.HomeActivity");
+                            //Intent intent = new Intent("HomeActivity");
+                            Intent intent = new Intent("com.demo.teppei.appsflyerdemo.HomeActivity");
                             startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this,"User and Password is not correct",

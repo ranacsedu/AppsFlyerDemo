@@ -1,4 +1,4 @@
-package com.example.teppei.appsflyerdemo;
+package com.demo.teppei.appsflyerdemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

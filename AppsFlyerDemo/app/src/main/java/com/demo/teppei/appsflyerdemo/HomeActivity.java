@@ -1,15 +1,14 @@
-package com.example.teppei.appsflyerdemo;
+package com.demo.teppei.appsflyerdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.appsflyer.AppsFlyerConversionListener;
 import com.appsflyer.AppsFlyerLib;
+import com.demo.teppei.appsflyerdemo.R;
 
 import java.util.Map;
 

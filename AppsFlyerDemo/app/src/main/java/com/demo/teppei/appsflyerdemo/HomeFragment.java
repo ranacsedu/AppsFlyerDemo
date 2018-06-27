@@ -1,4 +1,4 @@
-package com.example.teppei.appsflyerdemo;
+package com.demo.teppei.appsflyerdemo;
 
 
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.demo.teppei.appsflyerdemo.R;
 
 
 /**

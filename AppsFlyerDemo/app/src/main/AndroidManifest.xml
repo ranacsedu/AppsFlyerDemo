@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.teppei.appsflyerdemo">
+    package="com.demo.teppei.appsflyerdemo">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -24,7 +24,7 @@
         <activity android:name=".HomeActivity">
             android:label="@string/title_activity_user" >
             <intent-filter>
-                <action android:name="com.example.teppei.appsflyerdemo.HomeActivity" />
+                <action android:name="com.demo.teppei.appsflyerdemo.HomeActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

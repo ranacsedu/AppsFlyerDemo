@@ -1,4 +1,4 @@
-package com.example.teppei.appsflyerdemo;
+package com.demo.teppei.appsflyerdemo;
 
 import org.junit.Test;
 
