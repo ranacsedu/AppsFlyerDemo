@@ -11,7 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appsflyer.AppsFlyerConversionListener;
+import com.appsflyer.AppsFlyerLib;
 import com.demo.teppei.appsflyerdemo.R;
+
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private static EditText username;
@@ -19,10 +23,12 @@ public class LoginActivity extends AppCompatActivity {
     private static TextView attempts;
     private static Button login_btn;
     int attempt_counter = 5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         LoginButton();
     }
 

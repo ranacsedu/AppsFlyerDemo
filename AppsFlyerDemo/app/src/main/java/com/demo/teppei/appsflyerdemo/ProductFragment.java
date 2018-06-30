@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.demo.teppei.appsflyerdemo.R;
 
@@ -15,7 +17,7 @@ import com.demo.teppei.appsflyerdemo.R;
  */
 public class ProductFragment extends Fragment {
 
-
+    private WebView webview;
     public ProductFragment() {
         // Required empty public constructor
     }
@@ -25,7 +27,16 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product, container, false);
+        View view =  inflater.inflate(R.layout.fragment_product, container, false);
+
+        webview =(WebView)view.findViewById(R.id.webView);
+        webview.setWebViewClient(new WebViewClient());
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setDomStorageEnabled(true);
+        webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
+        webview.loadUrl("https://www.appsflyer.com/");
+
+        return view;
     }
 
 }

@@ -1,13 +1,15 @@
 package com.demo.teppei.appsflyerdemo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.demo.teppei.appsflyerdemo.R;
 
@@ -17,8 +19,8 @@ import com.demo.teppei.appsflyerdemo.R;
  */
 public class HomeFragment extends Fragment {
 
+    ListView lv;
 
-    private WebView webview;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -30,12 +32,29 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
-        webview =(WebView)view.findViewById(R.id.webView);
-        webview.setWebViewClient(new WebViewClient());
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.getSettings().setDomStorageEnabled(true);
-        webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-        webview.loadUrl("https://www.appsflyer.com/");
+
+        lv=(ListView)view.findViewById(R.id.listView1);
+
+        //ADAPTER
+        CustomAdapter adapter=new CustomAdapter(getContext());
+        lv.setAdapter(adapter);
+
+        //EVENTS
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View v, int pos,
+                                    long id) {
+                // TODO Auto-generated method stub
+
+                Intent i=new Intent(getContext(), DetailActivity.class);
+
+                //PASS INDEX OR POS
+                i.putExtra("Position", pos);
+                startActivity(i);
+
+            }
+        });
 
         return view;
     }

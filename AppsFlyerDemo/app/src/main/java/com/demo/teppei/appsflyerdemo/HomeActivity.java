@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.appsflyer.AppsFlyerConversionListener;
 import com.appsflyer.AppsFlyerLib;
@@ -13,6 +14,7 @@ import com.demo.teppei.appsflyerdemo.R;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
+
     private static final String AF_DEV_KEY = "<HLSoWZFpzn84UNyH8kWFpN>";
 
     @Override
@@ -25,31 +27,29 @@ public class HomeActivity extends AppCompatActivity {
                 new AppsFlyerConversionListener() {
                     @Override
                     public void onInstallConversionDataLoaded(Map<String, String> conversionData) {
-
+                        Log.d("AppsFlyer:","onInstallConversionDataLoaded:" + conversionData);
                     }
 
                     @Override
                     public void onInstallConversionFailure(String errorMessage) {
-
+                        Log.d("AppsFlyer:","onInstallConversionFailure:" + errorMessage);
                     }
 
                     @Override
                     public void onAppOpenAttribution(Map<String, String> attributionData) {
-
+                        Log.d("AppsFlyer:","onAppOpenAttribution:" + attributionData);
                     }
 
                     @Override
                     public void onAttributionFailure(String errorMessage) {
-
+                        Log.d("AppsFlyer:","onAttributionFailure:" + errorMessage);
                     }
                     //
                 };
-        //AppsFlyerLib.getInstance().init(AF_DEV_KEY, conversionDataListener, getApplicationContext());
-        //AppsFlyerLib.getInstance().startTracking(this);
-        AppsFlyerLib.getInstance().startTracking(this.getApplication(),AF_DEV_KEY);
+        AppsFlyerLib.getInstance().init(AF_DEV_KEY, conversionDataListener, getApplicationContext());
+        AppsFlyerLib.getInstance().startTracking(this.getApplication());
+        //AppsFlyerLib.getInstance().startTracking(this.getApplication(),AF_DEV_KEY);
         AppsFlyerLib.getInstance().sendDeepLinkData(this);
-
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
