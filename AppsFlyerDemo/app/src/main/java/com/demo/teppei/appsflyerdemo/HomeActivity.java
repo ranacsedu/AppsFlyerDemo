@@ -27,25 +27,36 @@ public class HomeActivity extends AppCompatActivity {
                 new AppsFlyerConversionListener() {
                     @Override
                     public void onInstallConversionDataLoaded(Map<String, String> conversionData) {
-                        Log.d("AppsFlyer:","onInstallConversionDataLoaded:" + conversionData);
+                        Log.v("AppsFlyer:","onInstallConversionDataLoaded:" + conversionData);
+                        for (String attrName : conversionData.keySet()) {
+                            Log.d(AppsFlyerLib.LOG_TAG, "conversion_attribute: " + attrName + " = " +
+                                    conversionData.get(attrName));
+                        }
                     }
 
                     @Override
                     public void onInstallConversionFailure(String errorMessage) {
-                        Log.d("AppsFlyer:","onInstallConversionFailure:" + errorMessage);
+                        Log.v("AppsFlyer:","onInstallConversionFailure:" + errorMessage);
                     }
 
                     @Override
                     public void onAppOpenAttribution(Map<String, String> attributionData) {
-                        Log.d("AppsFlyer:","onAppOpenAttribution:" + attributionData);
+                        Log.v("AppsFlyer:","onAppOpenAttribution:" + attributionData);
+                        for (String attrName : attributionData.keySet()) {
+                            Log.d(AppsFlyerLib.LOG_TAG, "onAppOpen_attribute: " + attrName + " = " +
+                                    attributionData.get(attrName));
+                        }
                     }
 
                     @Override
                     public void onAttributionFailure(String errorMessage) {
-                        Log.d("AppsFlyer:","onAttributionFailure:" + errorMessage);
+                        Log.v("AppsFlyer:","onAttributionFailure:" + errorMessage);
                     }
                     //
                 };
+        Log.v("AppsFlyer:","Init AppsFlyer object" );
+        //Log.i("AppsFlyer:","Init AppsFlyer object" );
+        //Log.d("AppsFlyer:","Init AppsFlyer object" );
         AppsFlyerLib.getInstance().init(AF_DEV_KEY, conversionDataListener, getApplicationContext());
         AppsFlyerLib.getInstance().startTracking(this.getApplication());
         //AppsFlyerLib.getInstance().startTracking(this.getApplication(),AF_DEV_KEY);
